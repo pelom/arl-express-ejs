@@ -1,0 +1,24 @@
+{
+  "name": "arl-express-ejs",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "André Leite"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/javascripts/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.6.1",
+    "angular-bootstrap": "^2.4.0",
+    "bootstrap": "^3.3.7"
+  }
+}
