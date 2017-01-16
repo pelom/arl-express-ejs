@@ -1,4 +1,5 @@
 <% layout('layout') -%>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -41,7 +42,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" ng-controller="contactController">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -51,38 +52,34 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
-                      <div class="row control-group">
-                          <div class="form-group col-xs-12 floating-label-form-group controls floating-label-form-group-with-value">
-                              <label>Serviço de Interesse</label>
-                              <select class="form-control">
-                                <option value="trp">Instalação, Manutenção de Ar condicionado</option>
-                                <option value="tpa">Consultoria Técnica</option>
-                                <option value="tbn">Solicitar orçamento</option>
+
+                    <form ng-submit="enviar();">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls floating-label-form-group-with-value">
+                                <label>Serviço de Interesse</label>
+                                <select class="form-control" ng-model="contact.tipoServ" ng-options="srv.value as srv.label  for srv in servicos">
                               </select>
-                              <p class="help-block text-danger"></p>
-                          </div>
-                      </div>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Nome</label>
-                                <input type="text" class="form-control" placeholder="Nome (João Silva)" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" class="form-control" ng-model="contact.nome" placeholder="Nome (João Silva)">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Email</label>
-                                <input type="email" class="form-control" placeholder="Email (exemplo@exemplo.com) " id="email" required data-validation-required-message="Please enter your email address.">
+                                <input type="email" class="form-control" ng-model="contact.email" placeholder="Email (exemplo@exemplo.com) ">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Telefone</label>
-                                <input type="tel" class="form-control" placeholder="Telefone (9999-9999)" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <input type="tel" class="form-control" ng-model="contact.tel" placeholder="Telefone (9999-9999)">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -90,7 +87,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Comentário</label>
-                                <textarea rows="3" class="form-control" placeholder="Comentário (Como podemos lhe ajudar?)" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <textarea rows="3" class="form-control" ng-model="contact.desc" placeholder="Comentário (Como podemos lhe ajudar?)"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>

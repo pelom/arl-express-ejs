@@ -1,3 +1,19 @@
+angular.module("index", []);
+angular.module("index").controller("contactController", function($scope) {
+  $scope.servicos = [
+      { value: 0, label: 'Instalação, Manutenção de Ar condicionado' },
+      { value: 1, label: 'Consultoria Técnica'                       },
+      { value: 2, label: 'Solicitar orçamento'                       }
+  ];
+  $scope.contact = {
+    nome: 'André Leite', tipoServ: 1, email: 'pelomedrado@gmail.com',
+    desc: 'Descrição', tel: '9-7966 3600'
+  };
+  $scope.enviar = function() {
+    console.log($scope.contact);
+  };
+});
+
 $(document).ready(function() {
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $('.page-scroll a').bind('click', function(event) {
